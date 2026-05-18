@@ -1,0 +1,149 @@
+/* 共通設定 */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  font-family: sans-serif;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+/* 画面切り替え用のベースクラス */
+.view-screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.view-screen.active {
+  display: block;
+}
+
+/* 右上の切り替えボタン */
+#mode-toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* --- ペンライト画面用CSS --- */
+#penlight-view {
+  transition: background-color 0.1s ease;
+}
+
+/* 画面を左右に見えないボタンとして分割 */
+.touch-zone {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 10;
+}
+#zone-left { left: 0; }
+#zone-right { right: 0; }
+
+/* カラーピッカー */
+.color-picker-wrap {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* --- うちわ（動画）画面用CSS --- */
+#uchiwa-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+}
+
+.video-controls button {
+  padding: 10px;
+  margin: 0 5px;
+  background: #333;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* --- カスタムテキスト表示用CSS --- */
+/* カスタムテキスト表示エリア */
+#custom-text-display {
+  display: none; /* 初期状態は非表示 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 20vw; /* 画面幅に応じて文字を大きく表示 */
+  font-weight: bold;
+  text-align: center;
+  word-break: break-word;
+  white-space: pre-wrap;
+  z-index: 15; /* 動画の上、ボタンの下に配置 */
+  
+  /* 点滅アニメーションの適用 (0.6秒間隔で繰り返す) */
+  animation: blink 0.6s infinite alternate;
+}
+
+/* 点滅用のアニメーション定義 */
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* テキスト入力・色選択のコントロールエリア */
+.text-controls {
+  position: absolute;
+  bottom: 80px; /* 動画切り替えボタンの少し上に配置 */
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+}
+
+.text-controls input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.text-controls input[type="color"] {
+  width: 40px;
+  height: 42px;
+  vertical-align: middle;
+  border: none;
+  background: none;
+  cursor: pointer;
+}

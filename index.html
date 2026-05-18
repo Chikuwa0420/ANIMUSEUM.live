@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ライブ応援アプリ</title>
+  <!-- CSSファイルの読み込み -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- モード切り替えボタン -->
+  <button id="mode-toggle-btn">うちわモードへ 🔁</button>
+
+  <!-- ===============================
+       ペンライト画面 
+       =============================== -->
+  <div id="penlight-view" class="view-screen active">
+    <!-- 左右のタップ検知エリア -->
+    <div id="zone-left" class="touch-zone"></div>
+    <div id="zone-right" class="touch-zone"></div>
+
+    <!-- 好きな色に変更するピッカー -->
+    <div class="color-picker-wrap">
+      <label for="custom-color"><small>好きな色を追加</small></label>
+      <input type="color" id="custom-color" value="#ffffff">
+    </div>
+  </div>
+
+
+
+  <!-- ===============================
+       うちわ画面
+       =============================== -->
+ <div id="uchiwa-view" class="view-screen">
+    <video id="uchiwa-video" muted playsinline loop autoplay>
+      <source src="movie/text/kuruzo.mp4" type="video/mp4">
+    </video>
+
+    <div id="custom-text-display"></div>
+
+    <div class="text-controls">
+      <input type="text" id="custom-text-input" placeholder="文字を入力（動画と切り替え）">
+      <input type="color" id="custom-text-color" value="#ff0000">
+    </div>
+    <div class="video-controls">
+      <button class="vid-btn" data-src="movie/text/kuruzo.mp4">くるぞ</button>
+      <button class="vid-btn" data-src="movie/text/ikuzo.mp4">いくぞ</button>
+      <button class="vid-btn" data-src="movie/text/atui.mp4">熱い</button>
+      <button class="vid-btn" data-src="movie/text/kami.mp4">神</button>
+      <button class="vid-btn" data-src="movie/text/naki.mp4">泣き</button>        
+    </div>
+  </div>
+
+
+  <!-- JavaScriptファイルの読み込み -->
+  <script src="script.js"></script>
+</body>
+</html>
