@@ -1,5 +1,6 @@
 // === モード切り替えの処理 ===
 const toggleBtn = document.getElementById('mode-toggle-btn');
+const toggleImg = document.getElementById('toggle-img');
 const penlightView = document.getElementById('penlight-view');
 const uchiwaView = document.getElementById('uchiwa-view');
 let isPenlightMode = true;
@@ -9,11 +10,15 @@ toggleBtn.addEventListener('click', () => {
   if (isPenlightMode) {
     penlightView.classList.add('active');
     uchiwaView.classList.remove('active');
-    toggleBtn.innerText = 'うちわモードへ 🔁';
+    // 画像をうちわモードボタンに変更
+    toggleImg.src = 'image/uchiwa.btn.png'; 
+    toggleImg.alt = 'うちわモードへ';
   } else {
     penlightView.classList.remove('active');
     uchiwaView.classList.add('active');
-    toggleBtn.innerText = 'ペンライトモードへ 🔁';
+    // 画像をペンライトモードボタンに変更
+    toggleImg.src = 'image/penlight.btn.png'; 
+    toggleImg.alt = 'ペンライトモードへ';
   }
 });
 

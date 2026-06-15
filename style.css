@@ -36,6 +36,14 @@ body, html {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+#mode-toggle-btn img {
+  width: 150px; 
+  filter: drop-shadow(0px 10px 12px rgba(0,0,0,0.5));
 }
 
 /* --- ペンライト画面用CSS --- */
